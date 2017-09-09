@@ -11,7 +11,8 @@ Used [Angular Material](https://material.angular.io/) design components for fron
 The client was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.0.
 
 ## Instructions
-* Make sure you run 1mongod.exe1 before starting the app.
+* Make sure you run `mongod.exe` before starting the app.
+* Install dependencies by running `npm install`
 * Run `npm start`
 * Navigate to `http://localhost:4200/` for the client. The app will automatically reload if you change any of the source files. 
 * The server is run at `http://localhost:3000/` after running `npm start`
