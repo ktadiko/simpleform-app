@@ -1,0 +1,24 @@
+<md-card-content>
+<form class="example-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <md-form-field class="example-full-width">
+    <input mdInput formControlName="firstName" placeholder="First Name">
+    <md-hint *ngIf="registerForm.hasError('required','firstName')" [ngStyle]="{'color': 'red'}" align="start">First name is required</md-hint>
+  </md-form-field>
+  <md-form-field class="example-full-width">
+    <input mdInput formControlName="lastName" placeholder="Last Name">
+    <md-hint *ngIf="registerForm.hasError('required','lastName')" [ngStyle]="{'color': 'red'}" align="start">Last name is required</md-hint>
+  </md-form-field>
+  <md-form-field class="example-full-width">
+    <input mdInput formControlName="company" placeholder="Company">
+    <md-hint *ngIf="registerForm.hasError('required','company')" [ngStyle]="{'color': 'red'}" align="start">Company name is required</md-hint>
+  </md-form-field>
+  <md-form-field class="example-full-width">
+    <textarea mdInput formControlName="address" placeholder="Address"></textarea>
+  </md-form-field>
+
+  <md-card-actions>
+    <div fxFlex></div>
+    <button md-raised-button color="primary" type="submit" [disabled]="!registerForm.valid">Submit</button>
+  </md-card-actions>
+</form>
+</md-card-content>
