@@ -10,6 +10,9 @@ const mongoose = require('mongoose');
 // express backend
 const app = express();
 
+// serve prod files statically
+app.use(express.static('dist'))
+
 // port setup
 const port = process.env.PORT || '3000';
 app.set('port', port);
