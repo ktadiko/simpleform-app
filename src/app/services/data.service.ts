@@ -25,11 +25,7 @@ export class DataService {
   // Get a form by Id
   getFormById(formId){
     return this.http.get(SERVER_URL + '/api/form/' + formId)
-      .map(res => res.json() as Form).subscribe(
-        form => { 
-          this.subject.next(form);
-        }
-      );
+      .map(res => res.json() as Form);
   }
 
   // register a new form
@@ -38,7 +34,11 @@ export class DataService {
     return this.http.post(SERVER_URL + '/api/form', form)
     .toPromise()
     .then(res => {
-      this.getFormById(res.json().formId)
+      this.getFormById(res.json().formId).subscribe(
+        form => { 
+          this.subject.next(form);
+        }
+      );
     });
   }
 
