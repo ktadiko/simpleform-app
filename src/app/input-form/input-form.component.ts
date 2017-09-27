@@ -20,6 +20,7 @@ export class InputFormComponent implements OnInit {
   		firstName: ['', Validators.required],
   		lastName:  ['', Validators.required],
   		company:   ['',  Validators.required],
+      salary:    ['', Validators.required],
   		address:   ''
   	})
   }
@@ -29,6 +30,7 @@ export class InputFormComponent implements OnInit {
       this.registerForm.value['firstName'],
       this.registerForm.value['lastName'],
       this.registerForm.value['address'],
+      this.registerForm.value['salary'],
       this.registerForm.value['company']));
   }
 

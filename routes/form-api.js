@@ -28,7 +28,8 @@ router.post('/form', (req, res) => {
     firstName: data.firstName,
     lastName: data.lastName,
     address: data.address,
-    company: data.company
+    company: data.company,
+    salary: data.salary
   });
 
   // save the form
@@ -82,6 +83,21 @@ router.delete('/form/:formId', (req, res) => {
     // The form has been deleted
     res.status(status.OK).json({message: 'Deleted Form'});
   });
+});
+
+router.get('/TotalCosts/:company', (req, res) => {
+  var company = req.params.company;
+  console.log(company);
+  
+  Form.aggregate()
+      .match({company: company})
+      .group({_id: "$company", totalSum: {$sum: "$salary"}})
+      .exec((err, result) => {
+        if(err) {
+          res.json({Success:"Failed to retrieve sum"})
+        }
+        res.json({totalCost: result[0].totalSum})
+      });
 });
 
 module.exports = router;

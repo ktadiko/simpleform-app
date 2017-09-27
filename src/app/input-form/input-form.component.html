@@ -16,6 +16,11 @@
     <textarea mdInput formControlName="address" placeholder="Address"></textarea>
   </md-form-field>
 
+  <md-form-field class="example-full-width">
+    <input mdInput pattern="^[0-9]*$" formControlName="salary" placeholder="Salary">
+    <md-hint *ngIf="registerForm.get('salary').hasError('required')" [ngStyle]="{'color': 'red'}" align="start">Salary is required and should be a number</md-hint>
+  </md-form-field>
+
   <md-card-actions>
     <div fxFlex></div>
     <button md-raised-button color="primary" type="submit" [disabled]="!registerForm.valid">Submit</button>

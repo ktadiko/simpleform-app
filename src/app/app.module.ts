@@ -18,13 +18,15 @@ import {
   MdToolbarModule,
   MdCardModule
 } from '@angular/material';
+import { SalaryViewComponent } from './salary-view/salary-view.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     InputFormComponent,
-    DbViewComponent
+    DbViewComponent,
+    SalaryViewComponent
   ],
   imports: [
     BrowserModule,

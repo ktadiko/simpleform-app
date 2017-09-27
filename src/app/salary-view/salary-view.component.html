@@ -1,0 +1,13 @@
+<md-card-content>
+<form class="example-form" [formGroup]="salaryForm" (ngSubmit)="onSubmit()">
+  <md-form-field class="example-full-width">
+    <input mdInput formControlName="company" placeholder="Company Name">
+    <md-hint *ngIf="salaryForm.get('company').hasError('required')" [ngStyle]="{'color': 'red'}" align="start">Company name is required</md-hint>
+  </md-form-field>
+  <p>{{totalCost}}</p>
+  <md-card-actions>
+    <div fxFlex></div>
+    <button md-raised-button color="primary" type="submit" [disabled]="!salaryForm.valid">Submit</button>
+  </md-card-actions>
+</form>
+</md-card-content>

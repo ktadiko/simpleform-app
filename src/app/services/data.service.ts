@@ -54,4 +54,16 @@ export class DataService {
       .map(res => res.json());
   }
 
+  totalCostSource = new Subject<Number>();
+
+  getTotalCosts(company) {
+    return this.http.get(SERVER_URL + '/api/TotalCosts/' + company)
+           .map(res => res.json())
+           .subscribe(
+            totalCost => {
+              console.log(totalCost['totalCost'])
+              this.totalCostSource.next(totalCost['totalCost']);
+            });
+  }
+
 }
